@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# The Challenge 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Create a webpage that can search OMDB for movies, and allow the user to save their favorite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
 
-## Available Scripts
+## Requirements 
 
-In the project directory, you can run:
+- Simple to use interface.
+- The ability to search the OMDB API and return a list of movies that show at least the title, release year, and a button to nominate them.
+- Search results should only be of movies.
+- Updates to the search terms should update the result list.
+- If a movie has been nominated already, it's button should be disabled within in search results.
+- Nominated movies should move to their own "Nomination List".
+- Movies in the nomination list should be able to be removed.
+- Display a banner when the user has 5 nominations.
 
-### `yarn start`
+### Provided Reference Image 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Example image](./example.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Example of one of the people who tried this: [Live example](https://the-shoppies-gyk.netlify.app/)
 
-### `yarn test`
+# Instructions: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## File structure
 
-### `yarn build`
+- depending on what flow to take
+    - Follow the component container pattern, so your two main folders inside the `src` will be the `components` folder that will contain your components and `containers` that will contain container components. *You can read more about container components [here](https://reactpatterns.com/#container-component) or you can ask you team leader about it for more clarity.*
+    - similar concept you can use the component page 
+    take a look [here](https://blog.bitsrc.io/structuring-a-react-project-a-definitive-guide-ac9a754df5eb)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Use `scss` instead of css if you going with `react-bootstrap`
+- You can use `postcss` if you are going with another library that uses something like `tailwind`
+- Global style variables will be inside a `style` folder inside the `src` inside a `_variables.scss.` If you are using `react-bootstrap` this can come in handy!
+- The main folder names inside the `src` should be lower case like `components` and `container or pages` other folders inside them should be TitleCase like `ProgressBar` and files inside these folder will be TitleCase too like `ProgressBar.js.` If you need styles then add them with the same `.js` file name like `ProgressBar.scss`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Your project hierarchy should look something similar to this:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+.
+├── src
+	├── components
+		├── ProgressBar
+			├── ProgressBar.js
+			├── ProgressBar.scss
+	├── containers
+		├── About
+				├── ContactForm.js
+				├── About.js
+	├── style
+		├── _variables.scss
+```
 
-### `yarn eject`
+- All dependencies inside the `package.json` should be used in the project.
+- It's recommended to use Yarn to install the packages.
+- General use images should be inside a folder inside `src` under `images` and try to use `svg` as much as possible. Component specific images should be under their folders.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Software requirements:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- You should have prettier installed and make sure your code is well formatted before committing it.
+- You should have eslint installed and make sure your code is following the [Airbnb guidelines](https://github.com/airbnb/javascript/tree/master/react) before committing.
+- You should install [Husky](https://github.com/typicode/husky) to make sure that your code gets checked before you commit anything. 
+- For Styling use Tailwind, Styled Components, React-Bootstrap, or Material UI.
+- Follow the [Git feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
+- Follow the [Angular commit message format](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format)
+- This project should be deployed to [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Helpful article about prettier and eslint](https://www.mkapica.com/react-eslint/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Scripts
 
-## Learn More
+This project was created using `create-react-app` and `yarn` as the package manager.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
