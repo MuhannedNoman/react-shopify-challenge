@@ -63,6 +63,8 @@ Your project hierarchy should look something similar to this:
 - Follow the [Git feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
 - Follow the [Angular commit message format](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format)
 - This project should be deployed to [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/)
+- For state management use the Context API & useReducer hooks. 
+- For any data fetching build a custom hook and use [Axios](https://github.com/axios/axios).
 
 [Helpful article about prettier and eslint](https://www.mkapica.com/react-eslint/)
 
