@@ -1,9 +1,8 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  var a = 'gfg';
-  
+function App() {  
   return (
     <div className="App">
       <header className="App-header">
