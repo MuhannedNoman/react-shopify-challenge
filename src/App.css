@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+.App{
+  --primary-color:rgb(3, 99, 102);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header{
+  border-bottom: 1px solid gray;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.brand h1{
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-left: 30px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.search{
+  float: right;
+  margin-right: -400px;
+}
+.menu-items h5{
+  font-size: 18px;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.menu-items h5:hover{
+  color: var(--primary-color);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main{
+  height: 1000px;
+  width: 100%;
+  background: linear-gradient(to right, rgba(30, 30, 31, 0.9), rgba(32, 34, 36, 0.4)), url("images/witcher.jpg") right top no-repeat ;
+  background-size: cover;
+ 
+}
+.movie-info{
+  height: 300px;
+  width: 30%;
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  margin-left: 150px;
+  align-items: center;
+  text-align: left;
+  color: white;
 }
