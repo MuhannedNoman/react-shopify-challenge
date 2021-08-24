@@ -1,15 +1,21 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+
+// Styles
+import { SearchWrapperStyles } from "./Style";
+
+function Search({ handleSearch }) {
+  //setup before functions
+
 function Search({ search, handleSearch }) {
+
   return (
     <div>
-      <h3>Search For Movies</h3>
       <br />
-      <Form.Control
+      <SearchWrapperStyles
         type="text"
-        placeholder="Movie name"
+        placeholder="&#xF002; Movie name"
         name="search"
-        onChange={handleSearch}
+        onBlur={handleSearch}
       />
     </div>
   );

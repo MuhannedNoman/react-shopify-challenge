@@ -30,7 +30,7 @@ const MovieList = () => {
   function handleSearch(e) {
     setSearch(e.target.value);
   }
-  //`http://www.omdbapi.com/?s=open&t=${search}&apikey=780560ff`
+
   // @material-ui useStyles
   const classes = useStyles();
   //https://www.omdbapi.com/?s=joker&i=tt3896198&apikey=c6b71c9e&
@@ -58,6 +58,7 @@ const MovieList = () => {
     Poster,
   } = data;
 
+
   return (
     <MoviesDataWrapper>
       <Search
@@ -72,7 +73,9 @@ const MovieList = () => {
           <CardActionArea>
             <CardMedia
               className={classes.media}
+
               image={Poster}
+
               alt={Title}
               title={Title}
             />
@@ -100,6 +103,7 @@ const MovieList = () => {
             </Button>
           </CardActions>
         </Card>
+
       )}
     </MoviesDataWrapper>
   );

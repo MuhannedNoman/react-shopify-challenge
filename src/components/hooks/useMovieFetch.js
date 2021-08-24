@@ -6,6 +6,7 @@ function useMovieFetch(url) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
+
     fetch(url)
       .then((r) => r.json())
       .then((movie) => {
