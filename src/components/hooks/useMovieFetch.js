@@ -6,11 +6,10 @@ function useMovieFetch(url) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    setIsLoaded(false);
     fetch(url)
       .then((r) => r.json())
-      .then((data) => {
-        setData(data);
+      .then((movie) => {
+        setData(movie);
         setIsLoaded(true);
       });
   }, [url]);

@@ -1,11 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
-function Search({ setQuery }) {
-  const [search, setSearch] = useState("");
-  function handleSearch(e) {
-    setSearch(e.target.value);
-    setQuery(search);
-  }
+function Search({ search, handleSearch }) {
   return (
     <div>
       <h3>Search For Movies</h3>
