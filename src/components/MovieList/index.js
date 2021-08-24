@@ -33,12 +33,14 @@ const MovieList = () => {
 
   // @material-ui useStyles
   const classes = useStyles();
-
+  //https://www.omdbapi.com/?s=joker&i=tt3896198&apikey=c6b71c9e&
   // Fetch data for a movies
+  //this api works
   const { data, isLoaded } = useMovieFetch(
-    `http://www.omdbapi.com/?t=${search}&apikey=780560ff`
+    `https://www.omdbapi.com/?s=${search}&i=tt3896198&apikey=c6b71c9e&`
   );
-  if (!isLoaded) return <p>Loading ..</p>;
+
+  if (!isLoaded) return <p>Loading</p>;
 
   // Destructuring data object
   const {
@@ -55,15 +57,25 @@ const MovieList = () => {
     Writer,
     Poster,
   } = data;
+
+
   return (
-    <>
-      <Search search={search} handleSearch={handleSearch} />
-      <MoviesDataWrapper>
+    <MoviesDataWrapper>
+      <Search
+        handleSearch={handleSearch}
+        search={search}
+        setSearch={setSearch}
+      />
+      {data.Error ? (
+        data.Error
+      ) : (
         <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
               className={classes.media}
-              src={Poster}
+
+              image={Poster}
+
               alt={Title}
               title={Title}
             />
@@ -91,8 +103,9 @@ const MovieList = () => {
             </Button>
           </CardActions>
         </Card>
-      </MoviesDataWrapper>
-    </>
+
+      )}
+    </MoviesDataWrapper>
   );
 };
 
