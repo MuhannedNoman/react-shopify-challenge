@@ -21,7 +21,7 @@
     "test": "react-scripts test --bail",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "lint": "eslint ./src/**"
+    "lint": "eslint ./src/**/*.js[x]"
   },
   "eslintConfig": {
     "extends": [
