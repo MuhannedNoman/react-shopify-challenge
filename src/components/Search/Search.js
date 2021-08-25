@@ -6,6 +6,8 @@ import { SearchWrapperStyles } from "./Style";
 function Search({ handleSearch }) {
   //setup before functions
 
+function Search({ search, handleSearch }) {
+
   return (
     <div>
       <br />
