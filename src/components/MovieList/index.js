@@ -69,43 +69,13 @@ const MovieList = () => {
       {data.Error ? (
         data.Error
       ) : (
-        <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-
-              image={Poster}
-
-              alt={Title}
-              title={Title}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {Title}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                <p>Actors: {Actors} </p>
-                <p>Language: {Language}</p>
-                <p>Genre: {Genre}</p>
-                <p>Awards: {Awards}</p>
-                <p>Metascore: {Metascore}</p>
-                <p>DVD: {DVD}</p>
-                <p>Rated: {Rated}</p>
-                <p>Released: {Released}</p>
-                <p>Writer: {Writer}</p>
-                <p>Director: {Director}</p>
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button size="small" color="primary">
-              Nominate
-            </Button>
-          </CardActions>
-        </Card>
-
-      )}
-    </MoviesDataWrapper>
+          <>
+            {data.Search?.map((movie) => (
+              <MovieItem movie={movie} key={movie.imdbID} />
+            ))}{" "}
+          </>
+        )}
+      </MoviesDataWrapper>
   );
 };
 
