@@ -7,15 +7,16 @@ function Search({ handleSearch }) {
   //setup before functions
 
   return (
-    <div>
-      <br />
+    <>
+      <h3>Search below to nominate your top favorite movies & series.</h3>
+
       <SearchWrapperStyles
         type="text"
         placeholder="&#xF002; Movie name"
         name="search"
         onChange={handleSearch}
       />
-    </div>
+    </>
   );
 }
 

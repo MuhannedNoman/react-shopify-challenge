@@ -1,4 +1,6 @@
 import React, { useReducer } from "react";
+
+// Actions
 export const ACTIONS = {
   ADD_NOMINATE: "addNewNominate",
   REMOVE_NOMINATE: "removeNominate",
@@ -6,7 +8,10 @@ export const ACTIONS = {
 
 const initialState = [];
 
-export const nominateStore = React.createContext(initialState);
+// Context
+export const nominateStore = React.createContext();
+
+// Reducer
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.ADD_NOMINATE:

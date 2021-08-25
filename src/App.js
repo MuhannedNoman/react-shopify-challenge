@@ -1,12 +1,25 @@
 import MovieList from "./components/MovieList";
+import { Col, Row } from "react-bootstrap";
+
+// Styles
+import { AppStyles } from "./AppStyle";
+import Nominates from "./components/MovieList/Nominates";
 import NominateProvider from "./components/Store/nominateStore";
+
 function App() {
   return (
-    <div>
+    <AppStyles>
       <NominateProvider>
-        <MovieList />
+        <Row>
+          <Col lg="6" md="12">
+            <MovieList />
+          </Col>
+          <Col lg="6" md="12">
+            <Nominates />
+          </Col>
+        </Row>
       </NominateProvider>
-    </div>
+    </AppStyles>
   );
 }
 
