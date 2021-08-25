@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const MoviesDataWrapper = styled.div`
+export const NominatedListWrapper = styled.div`
   display: flex;
-  margin: 10px;
   justify-content: center;
-
+  margin: 10px;
 `;
