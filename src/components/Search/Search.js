@@ -13,7 +13,7 @@ function Search({ handleSearch }) {
         type="text"
         placeholder="&#xF002; Movie name"
         name="search"
-        onBlur={handleSearch}
+        onChange={handleSearch}
       />
     </div>
   );
