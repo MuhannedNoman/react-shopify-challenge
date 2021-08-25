@@ -1,22 +1,20 @@
 import React, { useContext } from "react";
-import { nominateStore, ACTIONS } from "../Store/nominateStore";
+import MovieItem from "./MovieItem";
+
+// Store
+import { nominateStore } from "../Store/nominateStore";
+
 function Nominates() {
-  const { state, dispatch } = useContext(nominateStore);
-  function handleDelete(id) {
-    dispatch({ type: ACTIONS.REMOVE_NOMINATE, payload: id });
-  }
-  if (state.lenght < 1) return null;
+  const { state } = useContext(nominateStore);
+
+  if (!state) return null;
   return (
-    <div>
+    <>
+      <h3>Nominated: {state?.length}</h3>
       {state.map((movie) => {
-        return (
-          <div key={movie.imdbID}>
-            <p>{movie.Title}</p>
-            <button onClick={() => handleDelete(movie.imdbID)}>Remove</button>
-          </div>
-        );
+        return <MovieItem movie={movie} key={movie.imdbID} nominate />;
       })}
-    </div>
+    </>
   );
 }
 
