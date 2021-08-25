@@ -6,8 +6,6 @@ import { SearchWrapperStyles } from "./Style";
 function Search({ handleSearch }) {
   //setup before functions
 
-function Search({ search, handleSearch }) {
-
   return (
     <div>
       <br />
@@ -15,7 +13,7 @@ function Search({ search, handleSearch }) {
         type="text"
         placeholder="&#xF002; Movie name"
         name="search"
-        onBlur={handleSearch}
+        onChange={handleSearch}
       />
     </div>
   );
