@@ -17,6 +17,7 @@ function App() {
         </Col>
       </Row>
     </AppStyles>
+
   );
 }
 
