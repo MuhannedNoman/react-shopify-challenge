@@ -1,5 +1,10 @@
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url(Font.ttf) format('woff');
+}
 .App{
   --primary-color:rgb(3, 99, 102);
+  --light-color:rgb(20, 214, 221);
 }
 .header{
   border-bottom: 1px solid gray;
@@ -23,18 +28,79 @@
 .main{
   height: 1000px;
   width: 100%;
-  background: linear-gradient(to right, rgba(30, 30, 31, 0.9), rgba(32, 34, 36, 0.4)), url("images/witcher.jpg") right top no-repeat ;
-  background-size: cover;
+  background-size: 100% 100%;
  
 }
+
 .movie-info{
   height: 300px;
   width: 30%;
   margin: 0;
   position: absolute;
-  top: 20%;
+  top: 15%;
   margin-left: 150px;
   align-items: center;
   text-align: left;
   color: white;
+  transition: width 1s, height 1s ,margin 1s;
+ 
+}
+.movie-info h1{
+  font-family: 'MyFont';
+  font-size: 70px;
+}
+.movies{
+  height: 400px;
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  top: 70%;
+  align-items: center;
+  backdrop-filter: blur(10px);
+ 
+}
+.card-movies{
+  height: 280px;
+  width: 150px;
+  margin-top: 10%;
+  
+}
+.card-movies img{
+  height: 250px;
+  width: 170px;
+}
+.card-movies p{
+  margin-top: 10px;
+  color: white;
+}
+.card-movies img:hover{
+  transition: width 1s, height 1s ,margin 1s;
+  height: 290px;
+  margin-top: -30px;
+  width: 180px;
+
+}
+
+.add button {
+  height: 50px;
+  width: 50px;
+  background-color: var(--light-color);
+   border: none;
+}
+.add .play-button{
+  background-color: var(--primary-color);
+ 
+}
+.add .icon{
+  font-size: 28px;
+  color: white;
+  
+}
+.stars .active{
+  color: yellow;
+}
+.activeMovie img{
+  height: 290px;
+  margin-top: -30px;
+  width: 180px;
 }
