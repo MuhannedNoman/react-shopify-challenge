@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { nominateStore, ACTIONS } from "../Store/nominateStore";
 
 // @material ui
@@ -30,11 +30,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function MovieItem({ movie, nominate }) {
-  const [disable, setDisable] = useState(false);
-
-  const { dispatch } = useContext(nominateStore);
+  const { state, dispatch } = useContext(nominateStore);
 
   const { Year, Type, Title, Poster } = movie;
+
+  function checkNominate() {
+    return !state.includes(movie) ? (
+      <Button size="large" color="primary" onClick={() => handleClick()}>
+        Nominate
+      </Button>
+    ) : (
+      <Button
+        size="large"
+        color="primary"
+        onClick={() => handleClick()}
+        disabled
+      >
+        Nominate
+      </Button>
+    );
+  }
 
   // Add Movie to the nominated list
   function handleClick() {
@@ -79,17 +94,7 @@ function MovieItem({ movie, nominate }) {
                 Remove
               </Button>
             ) : (
-              <Button
-                size="large"
-                color="primary"
-                onClick={() => {
-                  handleClick();
-                  setDisable(true);
-                }}
-                disabled={disable}
-              >
-                Nominate
-              </Button>
+              checkNominate()
             )}
           </CardActions>
         </div>
