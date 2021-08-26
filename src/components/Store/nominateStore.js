@@ -15,7 +15,7 @@ export const nominateStore = React.createContext();
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.ADD_NOMINATE:
-      return [...state, action.data];
+      return state.includes(action.data) ? state : [...state, action.data];
     case ACTIONS.REMOVE_NOMINATE:
       return state.filter((moive) => moive.imdbID !== action.payload);
     default:
