@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { nominateStore, ACTIONS } from "../Store/nominateStore";
 
 // @material ui
@@ -29,9 +29,14 @@ const useStyles = makeStyles((theme) => ({
     width: 200,
   },
 }));
-function MovieItem({ movie }) {
+function MovieItem({ movie, nominate }) {
+  const [disable, setDisable] = useState(false);
+
   const { dispatch } = useContext(nominateStore);
 
+  const { Year, Type, Title, Poster } = movie;
+
+  // Add Movie to the nominated list
   function handleClick() {
     dispatch({
       type: ACTIONS.ADD_NOMINATE,
@@ -39,11 +44,13 @@ function MovieItem({ movie }) {
     });
   }
 
-  const { Year, Type, Title, Poster } = movie;
+  // Remove Movie from nominated list
+  function handleDelete(id) {
+    dispatch({ type: ACTIONS.REMOVE_NOMINATE, payload: id });
+  }
 
   // @material-ui useStyles
   const classes = useStyles();
-  // const theme = useTheme();
 
   return (
     <MoviesDataWrapper>
@@ -63,9 +70,27 @@ function MovieItem({ movie }) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="large" color="primary" onClick={() => handleClick()}>
-              Nominate
-            </Button>
+            {nominate ? (
+              <Button
+                size="large"
+                color="primary"
+                onClick={() => handleDelete(movie.imdbID)}
+              >
+                Remove
+              </Button>
+            ) : (
+              <Button
+                size="large"
+                color="primary"
+                onClick={() => {
+                  handleClick();
+                  setDisable(true);
+                }}
+                disabled={disable}
+              >
+                Nominate
+              </Button>
+            )}
           </CardActions>
         </div>
       </Card>
