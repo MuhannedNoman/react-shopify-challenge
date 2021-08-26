@@ -4,26 +4,34 @@ import Search from "../Search/Search";
 import useMovieFetch from "../hooks/useMovieFetch";
 
 // @material-ui
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
+import Button from "@material-ui/core/Button";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 // Styles
 import { MoviesDataWrapper } from "./Style";
+
 //@material-ui
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    display: "flex",
   },
-  media: {
-    height: 140,
+  details: {
+    display: "flex",
+    flexDirection: "column",
   },
-});
+  content: {
+    flex: "1 0 auto",
+  },
+  cover: {
+    width: 200,
+  },
+}));
+
 const MovieList = () => {
   const [search, setSearch] = useState("");
 
@@ -33,9 +41,8 @@ const MovieList = () => {
 
   // @material-ui useStyles
   const classes = useStyles();
-  //https://www.omdbapi.com/?s=joker&i=tt3896198&apikey=c6b71c9e&
-  // Fetch data for a movies
-  //this api works
+  const theme = useTheme();
+
   const { data, isLoaded } = useMovieFetch(
     `https://www.omdbapi.com/?s=${search}&i=tt3896198&apikey=c6b71c9e&`
   );
@@ -43,24 +50,10 @@ const MovieList = () => {
   if (!isLoaded) return <p>Loading</p>;
 
   // Destructuring data object
-  const {
-    Actors,
-    Awards,
-    DVD,
-    Director,
-    Genre,
-    Language,
-    Metascore,
-    Rated,
-    Released,
-    Title,
-    Writer,
-    Poster,
-  } = data;
-
+  const { Actors, Writer, Genre, Language, Released, Title, Poster } = data;
 
   return (
-    <MoviesDataWrapper>
+    <>
       <Search
         handleSearch={handleSearch}
         search={search}
@@ -69,43 +62,41 @@ const MovieList = () => {
       {data.Error ? (
         data.Error
       ) : (
-        <Card className={classes.root}>
-          <CardActionArea>
+        <MoviesDataWrapper>
+          <Card className={classes.root}>
             <CardMedia
-              className={classes.media}
-
+              className={classes.cover}
               image={Poster}
-
-              alt={Title}
-              title={Title}
+              title="Live from space album cover"
             />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {Title}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                <p>Actors: {Actors} </p>
-                <p>Language: {Language}</p>
-                <p>Genre: {Genre}</p>
-                <p>Awards: {Awards}</p>
-                <p>Metascore: {Metascore}</p>
-                <p>DVD: {DVD}</p>
-                <p>Rated: {Rated}</p>
-                <p>Released: {Released}</p>
-                <p>Writer: {Writer}</p>
-                <p>Director: {Director}</p>
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button size="small" color="primary">
-              Nominate
-            </Button>
-          </CardActions>
-        </Card>
-
+            <div className={classes.details}>
+              <CardContent className={classes.content}>
+                <Typography component="h5" variant="h5">
+                  {Title}
+                </Typography>
+                <Typography component="h6" variant="h6">
+                  Language: {Language}
+                </Typography>
+                <Typography component="h6" variant="h6">
+                  Genre: {Genre}
+                </Typography>
+                <Typography component="h6" variant="h6">
+                  Released: {Released}
+                </Typography>
+                <Typography component="h6" variant="h6">
+                  Writer: {Writer}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="large" color="primary">
+                  Nominate
+                </Button>
+              </CardActions>
+            </div>
+          </Card>
+        </MoviesDataWrapper>
       )}
-    </MoviesDataWrapper>
+    </>
   );
 };
 
