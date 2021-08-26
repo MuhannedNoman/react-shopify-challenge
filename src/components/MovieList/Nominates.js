@@ -11,6 +11,8 @@ function Nominates() {
   return (
     <>
       <h3>Nominated: {state?.length}</h3>
+      <br />
+      <br />
       {state.map((movie) => {
         return <MovieItem movie={movie} key={movie.imdbID} nominate />;
       })}
