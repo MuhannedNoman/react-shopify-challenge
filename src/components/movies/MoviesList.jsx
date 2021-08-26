@@ -5,9 +5,10 @@ import Movie from "./Movie";
 
 function MoviesList() {
   const { moviesState, dispatchMovies } = useContext(moviesContext);
-  const { movies } = moviesState;
+  const { movies, searchValue } = moviesState;
   const { data } = useFetch(
-    `https://www.omdbapi.com/?s=${moviesState.searchValue}&apikey=18415e4d`
+    `https://www.omdbapi.com/?s=${searchValue}&apikey=18415e4d`,
+    searchValue
   );
   useEffect(() => {
     if (data.Search)
