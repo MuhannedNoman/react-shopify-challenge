@@ -5,6 +5,7 @@ export const ACTIONS = {
   SEARCH: "SEARCH",
   NOMINATES: "NOMINATES",
   NOMINATED_ID: "NOMINATED_ID",
+  NOMINATE_REMOVE: "NOMINATE_REMOVE",
 };
 const initialState = {
   searchValue: "",
@@ -35,6 +36,11 @@ function reducer(state, action) {
       return {
         ...state,
         nominates: [...state.nominates, action.payload],
+      };
+    case ACTIONS.NOMINATE_REMOVE:
+      return {
+        ...state,
+        nominates: action.payload,
       };
     default:
       return state;

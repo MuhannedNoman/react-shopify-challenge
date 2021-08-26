@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import moviesContext, { ACTIONS } from "../../store/moviesContext";
 
 function NominatedMovie({ movie }) {
+  const { dispatchMovies, moviesState } = useContext(moviesContext);
+  const { nominates } = moviesState;
+  function onRemove(mov) {
+    const newMovies = nominates.filter((m) => m.imdbID !== mov.imdbID);
+    dispatchMovies({
+      type: ACTIONS.NOMINATE_REMOVE,
+      payload: newMovies,
+    });
+  }
   return (
     <div>
       {/* <img src={movie.Poster} alt="" /> */}
@@ -12,7 +22,13 @@ function NominatedMovie({ movie }) {
         Plot: <p>{movie.Plot}</p>
       </h3> */}
       <div>
-        <button>Remove</button>
+        <button
+          onClick={() => {
+            onRemove(movie);
+          }}
+        >
+          Remove
+        </button>
       </div>
     </div>
   );
