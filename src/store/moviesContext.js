@@ -4,11 +4,13 @@ export const ACTIONS = {
   MOVIES: "MOVIES",
   SEARCH: "SEARCH",
   NOMINATES: "NOMINATES",
+  NOMINATED_ID: "NOMINATED_ID",
 };
 const initialState = {
   searchValue: "",
   movies: [],
   nominates: [],
+  nominatedID: "",
 };
 
 const moviesContext = React.createContext(initialState);
@@ -23,6 +25,11 @@ function reducer(state, action) {
       return {
         ...state,
         movies: action.payload,
+      };
+    case ACTIONS.NOMINATED_ID:
+      return {
+        ...state,
+        nominatedID: action.payload,
       };
     case ACTIONS.NOMINATES:
       return {

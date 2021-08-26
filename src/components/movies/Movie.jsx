@@ -6,8 +6,8 @@ function Movie({ movie }) {
   const { nominates } = moviesState;
   function onNominate(movie) {
     dispatchMovies({
-      type: ACTIONS.NOMINATES,
-      payload: movie,
+      type: ACTIONS.NOMINATED_ID,
+      payload: movie.imdbID,
     });
   }
   const isNominated = nominates.find((mov) => {
