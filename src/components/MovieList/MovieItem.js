@@ -35,17 +35,13 @@ function MovieItem({ movie, nominate }) {
   const { Year, Type, Title, Poster } = movie;
 
   function checkNominate() {
-    return !state.includes(movie) ? (
+    let index = state.findIndex((el) => el.imdbID === movie.imdbID);
+    return index === -1 ? (
       <Button size="large" color="primary" onClick={() => handleClick()}>
         Nominate
       </Button>
     ) : (
-      <Button
-        size="large"
-        color="primary"
-        onClick={() => handleClick()}
-        disabled
-      >
+      <Button size="large" color="primary" disabled>
         Nominate
       </Button>
     );
