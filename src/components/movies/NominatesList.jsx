@@ -1,18 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
-import moviesContext from "../../store/moviesContext";
+import moviesContext, { ACTIONS } from "../../store/moviesContext";
 
 function NominatesList() {
-  const { moviesState } = useContext(moviesContext);
+  const { moviesState, dispatchMovies } = useContext(moviesContext);
   const { nominatedID } = moviesState;
 
   const { data } = useFetch(
     `http://www.omdbapi.com/?i=${nominatedID}&apikey=18415e4d`,
     nominatedID
   );
-  data;
+  useEffect(() => {
+    if (data.Response)
+      dispatchMovies({
+        type: ACTIONS.NOMINATES,
+        payload: data,
+      });
+  }, [data]);
 
-  return <div></div>;
+  return <div> </div>;
 }
 
-export default React.memo(NominatesList);
+export default NominatesList;
