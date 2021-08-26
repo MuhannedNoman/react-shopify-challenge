@@ -1,24 +1,32 @@
 import React, { useContext, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
 import moviesContext, { ACTIONS } from "../../store/moviesContext";
+import NominatedMovie from "./NominatedMovie";
 
 function NominatesList() {
   const { moviesState, dispatchMovies } = useContext(moviesContext);
-  const { nominatedID } = moviesState;
+  const { nominatedID, nominates } = moviesState;
 
-  const { data } = useFetch(
+  const { data: movie } = useFetch(
     `http://www.omdbapi.com/?i=${nominatedID}&apikey=18415e4d`,
     nominatedID
   );
   useEffect(() => {
-    if (data.Response)
+    if (movie.Response)
       dispatchMovies({
         type: ACTIONS.NOMINATES,
-        payload: data,
+        payload: movie,
       });
-  }, [data]);
+  }, [movie]);
 
-  return <div> </div>;
+  return (
+    <div>
+      {" "}
+      {nominates.map((movie) => {
+        return <NominatedMovie key={movie.imdbID} movie={movie} />;
+      })}{" "}
+    </div>
+  );
 }
 
 export default NominatesList;
