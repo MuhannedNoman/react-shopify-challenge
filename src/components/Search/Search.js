@@ -6,18 +6,17 @@ import { SearchWrapperStyles } from "./Style";
 function Search({ handleSearch }) {
   //setup before functions
 
-function Search({ search, handleSearch }) {
-
   return (
-    <div>
-      <br />
+    <>
+      <h3>Search below to nominate your top favorite movies & series.</h3>
+
       <SearchWrapperStyles
         type="text"
         placeholder="&#xF002; Movie name"
         name="search"
         onBlur={handleSearch}
       />
-    </div>
+    </>
   );
 }
 
