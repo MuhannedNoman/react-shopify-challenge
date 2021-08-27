@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 // take in the url
 function useMovieFetch(url) {
@@ -6,13 +7,21 @@ function useMovieFetch(url) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-
-    fetch(url)
-      .then((r) => r.json())
-      .then((movie) => {
-        setData(movie);
-        setIsLoaded(true);
-      });
+    try {
+      const fetchData = async () => {
+        await axios.get(url).then((response) => {
+          setData(response.data);
+          setIsLoaded(true);
+          console.log(response);
+        });
+      };
+      fetchData();
+    } catch (error) {
+      console.log(
+        "🚀 ~ file: useMovieFetch.js ~ line 20 ~ useEffect ~ error",
+        error
+      );
+    }
   }, [url]);
 
   return { data, isLoaded };
