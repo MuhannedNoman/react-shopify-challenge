@@ -6,7 +6,7 @@ import Movie from "./Movie";
 function MoviesList() {
   const { moviesState, dispatchMovies } = useContext(moviesContext);
   const { movies, searchValue } = moviesState;
-  const { data } = useFetch(
+  const { data, isLoading, error } = useFetch(
     `https://www.omdbapi.com/?s=${searchValue}&apikey=18415e4d`,
     searchValue
   );
@@ -24,7 +24,10 @@ function MoviesList() {
         payload: [],
       });
   }, [data.Search]);
-
+  const hasSearched = searchValue !== "";
+  if (isLoading && hasSearched) return <h1>Loading...</h1>;
+  if (error && hasSearched) return <h1> {error}</h1>;
+  if (!data.Search && hasSearched) return <h1>No Results</h1>;
   return (
     <div>
       {movies.slice(0, 3).map((movie) => {
