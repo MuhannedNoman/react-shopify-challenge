@@ -7,7 +7,7 @@ function Search() {
   function handleSearch(e) {
     dispatchMovies({
       type: ACTIONS.SEARCH,
-      payload: e.target.value.trim(),
+      payload: e.target.value,
     });
   }
   const moviesOptions = movies.slice(0, 4).filter((movie) => {

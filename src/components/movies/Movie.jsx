@@ -15,15 +15,17 @@ function Movie({ movie }) {
   });
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <h3>{movie.Title}</h3>
       <h4>{movie.Year}</h4>
       <img src={movie.Poster} alt="" />
-      {!isNominated ? (
-        <button onClick={() => onNominate(movie)}>Nominate</button>
-      ) : (
-        <button disabled>Nominated</button>
-      )}
+      <button
+        style={{ padding: "1rem 2rem" }}
+        onClick={() => onNominate(movie)}
+        disabled={isNominated}
+      >
+        {isNominated ? "Nominated" : "Nominate"}
+      </button>
     </div>
   );
 }

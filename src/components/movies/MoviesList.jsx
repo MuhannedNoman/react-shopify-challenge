@@ -7,7 +7,7 @@ function MoviesList() {
   const { moviesState, dispatchMovies } = useContext(moviesContext);
   const { movies, searchValue } = moviesState;
   const { data, isLoading, error } = useFetch(
-    `https://www.omdbapi.com/?s=${searchValue}&apikey=18415e4d`,
+    `https://www.omdbapi.com/?s=${searchValue.trim()}&apikey=18415e4d`,
     searchValue
   );
   useEffect(() => {
@@ -29,7 +29,7 @@ function MoviesList() {
   if (error && hasSearched) return <h1> {error}</h1>;
   if (!data && hasSearched) return <h1>No Results</h1>;
   return (
-    <div>
+    <div style={{ display: "flex", justifyContent: "space-around" }}>
       {movies.slice(0, 3).map((movie) => {
         return <Movie key={movie.imdbID} movie={movie} />;
       })}
