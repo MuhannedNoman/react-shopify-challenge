@@ -12,7 +12,6 @@ import {
 export default function Header() {
   return (
     <div>
-     
       <Navbar expand="lg" fixed="top" className="header">
         <Navbar.Brand href="#" className="brand">
           <h1>MovieSTAN</h1>
@@ -27,9 +26,9 @@ export default function Header() {
               aria-label="Search"
             />
             <button  className="search-btn">Search</button>
+
           </Form>
         </Navbar.Collapse>
       </Navbar>
     </div>
-  );
-}
+  );}

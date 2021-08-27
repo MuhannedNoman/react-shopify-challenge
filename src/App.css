@@ -36,9 +36,7 @@
   width: 100%;
   background-size: 100% 100%;
   background-color: var(--primary-color);
- 
 }
-
 .movie-info{
   height: 300px;
   width: 40%;
@@ -50,7 +48,6 @@
   text-align: left;
   color: white;
   transition: width 1s, height 1s ,margin 1s;
- 
 }
 .movie-info h1{
   font-family: 'MyFont';
@@ -64,14 +61,11 @@
   top: 70%;
   align-items: center;
   backdrop-filter: blur(10px);
- 
 }
 .card-movies{
   height: 280px;
   width: 150px;
   margin-top: 10%;
- 
-  
 }
 .card-movies img{
   height: 250px;
@@ -86,7 +80,6 @@
   height: 290px;
   margin-top: -30px;
   width: 180px;
-
 }
 
 .add button {
@@ -97,14 +90,43 @@
 }
 .add .play-button{
   background-color: var(--primary-color);
- 
 }
 .add .icon{
   font-size: 28px;
   color: white;
-  
 }
-
+.movie-info h1{
+  font-family: 'MyFont';
+  font-size: 70px;
+}
+.movies{
+  height: 400px;
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  top: 70%;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+.card-movies{
+  height: 280px;
+  width: 150px;
+  margin-top: 10%;
+}
+.card-movies img{
+  height: 250px;
+  width: 170px;
+}
+.card-movies p{
+  margin-top: 10px;
+  color: white;
+}
+.card-movies img:hover{
+  transition: width 1s, height 1s ,margin 1s;
+  height: 290px;
+  margin-top: -30px;
+  width: 180px;
+}
 .activeMovie img{
   height: 290px;
   margin-top: -30px;
@@ -114,9 +136,7 @@
   height: 500px;
   width: 100%;
   top:12%;
-  position: absolute;
-
-  
+  position: absolute;  
 }
 .favorate{
     height: 80px;
@@ -124,7 +144,6 @@
     margin-top: 5px;
 }
 .favorate-img img{
-  
   left:2%;
   height: 70px;
   width: 70px;

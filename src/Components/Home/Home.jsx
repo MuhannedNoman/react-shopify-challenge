@@ -4,6 +4,7 @@ import Fade from "react-reveal/Fade";
 import Slide from 'react-reveal/Slide';
 import { BsPlayFill ,BsFillXCircleFill} from "react-icons/bs";
 import { IoIosAdd } from "react-icons/io";
+
 import { useState } from "react";
 
 export default function Home(data) {
@@ -61,6 +62,7 @@ export default function Home(data) {
       </Col>
       </Row>
       <Fade left key={data.data}>
+
         <div className="movies">
           <Container>
             <Row>
@@ -83,7 +85,6 @@ export default function Home(data) {
           </Container>
         </div>
       </Fade>
-      
     </div>
   );
 }
