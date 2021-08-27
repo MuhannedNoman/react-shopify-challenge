@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Search from "../Search/Search";
 import MovieItem from "./MovieItem";
 import { Typography } from "@material-ui/core";
-import { Container } from "react-bootstrap";
 
 // hooks
 import useMovieFetch from "../hooks/useMovieFetch";
@@ -21,7 +20,7 @@ const MovieList = () => {
   if (!isLoaded) return <Typography>Loading</Typography>;
 
   return (
-    <Container>
+    <>
       <Search
         handleSearch={handleSearch}
         search={search}
@@ -37,7 +36,7 @@ const MovieList = () => {
           ))}
         </>
       )}
-    </Container>
+    </>
   );
 };
 

@@ -2,14 +2,15 @@ import React, { useContext } from "react";
 import { nominateStore, ACTIONS } from "../Store/nominateStore";
 
 // @material ui
-import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import { MoviesDataWrapper } from "./Style";
+import {
+  MoviesDataWrapper,
+  TypographyStyle,
+  NominateButtonStyle,
+} from "./Style";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flex: "1 0 auto",
+    marginBottom: "20px",
   },
   cover: {
     width: 200,
@@ -37,13 +39,17 @@ function MovieItem({ movie, nominate }) {
   function checkNominate() {
     let index = state.findIndex((el) => el.imdbID === movie.imdbID);
     return index === -1 ? (
-      <Button size="large" color="primary" onClick={() => handleClick()}>
+      <NominateButtonStyle
+        size="large"
+        className="button-style"
+        onClick={() => handleClick()}
+      >
         Nominate
-      </Button>
+      </NominateButtonStyle>
     ) : (
-      <Button size="large" color="primary" disabled>
+      <NominateButtonStyle size="large" className="button-style" disabled>
         Nominate
-      </Button>
+      </NominateButtonStyle>
     );
   }
 
@@ -69,30 +75,28 @@ function MovieItem({ movie, nominate }) {
         <CardMedia className={classes.cover} image={Poster} title={Title} />
         <div className={classes.details}>
           <CardContent className={classes.content}>
-            <Typography component="h5" variant="h5">
-              {Title}
-            </Typography>
+            <TypographyStyle component="h4" variant="h4" className="type">
+              <b>{Title}</b>
+            </TypographyStyle>
 
-            <Typography component="h5" variant="h5">
+            <TypographyStyle component="h5" variant="h5" className="type">
               Type: {Type}
-            </Typography>
-            <Typography component="h5" variant="h5">
+            </TypographyStyle>
+            <TypographyStyle component="h5" variant="h5">
               Year: {Year}
-            </Typography>
+            </TypographyStyle>
           </CardContent>
-          <CardActions>
-            {nominate ? (
-              <Button
-                size="large"
-                color="primary"
-                onClick={() => handleDelete(movie.imdbID)}
-              >
-                Remove
-              </Button>
-            ) : (
-              checkNominate()
-            )}
-          </CardActions>
+          {nominate ? (
+            <NominateButtonStyle
+              size="large"
+              className="button-style"
+              onClick={() => handleDelete(movie.imdbID)}
+            >
+              Remove
+            </NominateButtonStyle>
+          ) : (
+            checkNominate()
+          )}
         </div>
       </Card>
     </MoviesDataWrapper>
