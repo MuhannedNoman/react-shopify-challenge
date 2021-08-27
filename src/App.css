@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .App {
   text-align: center;
 }
@@ -5,6 +6,61 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+=======
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url(font.ttf) format('woff');
+}
+.App{
+  --primary-color:rgb(3, 99, 102);
+  --light-color:rgb(20, 214, 221);
+}
+.header{
+  border-bottom: 1px solid gray;
+}
+.brand h1{
+  font-size: 28px;
+  color: white;
+  margin-left: 30px;
+}
+.search{
+  float: right;
+  margin-right: 100px;
+}
+.search-btn{
+  border: none;
+  background-color: var(--light-color);
+  color: white;
+  border-radius: 20%;
+}
+.menu-items h5{
+  font-size: 18px;
+  color: white;
+}
+.menu-items h5:hover{
+  color: var(--primary-color);
+}
+.main{
+  height: 1000px;
+  width: 100%;
+  background-size: 100% 100%;
+  background-color: var(--primary-color);
+ 
+}
+
+.movie-info{
+  height: 300px;
+  width: 40%;
+  margin: 0;
+  position: absolute;
+  top: 15%;
+  margin-left: 150px;
+  align-items: center;
+  text-align: left;
+  color: white;
+  transition: width 1s, height 1s ,margin 1s;
+ 
+>>>>>>> Stashed changes
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -19,8 +75,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+<<<<<<< Updated upstream
   justify-content: center;
   font-size: calc(10px + 2vmin);
+=======
+  backdrop-filter: blur(10px);
+ 
+}
+.card-movies{
+  height: 280px;
+  width: 150px;
+  margin-top: 10%;
+ 
+  
+}
+.card-movies img{
+  height: 250px;
+  width: 170px;
+}
+.card-movies p{
+  margin-top: 10px;
+>>>>>>> Stashed changes
   color: white;
 }
 
@@ -28,6 +103,7 @@
   color: #61dafb;
 }
 
+<<<<<<< Updated upstream
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +112,59 @@
     transform: rotate(360deg);
   }
 }
+=======
+.add button {
+  height: 50px;
+  width: 50px;
+  background-color: var(--light-color);
+   border: none;
+}
+.add .play-button{
+  background-color: var(--primary-color);
+ 
+}
+.add .icon{
+  font-size: 28px;
+  color: white;
+  
+}
+
+.activeMovie img{
+  height: 290px;
+  margin-top: -30px;
+  width: 180px;
+}
+.favorates{
+  height: 500px;
+  width: 100%;
+  top:12%;
+  position: absolute;
+
+  
+}
+.favorate{
+    height: 80px;
+    width: 500px;
+    margin-top: 5px;
+}
+.favorate-img img{
+  
+  left:2%;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  position: absolute;
+}
+.favorate-text h1{
+  font-size: 24px;
+  color: white;
+  margin-left: 150px;
+}
+.cancle{
+  font-size: 20px;
+}
+.cancle-button{
+  background-color: transparent;
+  border: none;
+}
+>>>>>>> Stashed changes
