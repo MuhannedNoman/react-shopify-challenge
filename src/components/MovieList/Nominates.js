@@ -10,7 +10,8 @@ function Nominates() {
   if (!state) return null;
   return (
     <>
-      <h3>Nominated: {state?.length}</h3>
+      <h3>Nominated: {state?.length}/5</h3>
+      <br />
       <br />
       <br />
       {state.map((movie) => {

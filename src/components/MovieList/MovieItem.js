@@ -35,10 +35,15 @@ function MovieItem({ movie, nominate }) {
   const { state, dispatch } = useContext(nominateStore);
 
   const { Year, Type, Title, Poster } = movie;
-
+  function checkingPoster() {
+    return Poster === "N/A"
+      ? "https://ih1.redbubble.net/image.425370313.8057/fposter,small,wall_texture,product,750x1000.u1.jpg"
+      : Poster;
+  }
   function checkNominate() {
     let index = state.findIndex((el) => el.imdbID === movie.imdbID);
-    return index === -1 ? (
+
+    return index === -1 && state.length < 5 ? (
       <NominateButtonStyle
         size="large"
         className="button-style"
@@ -72,7 +77,11 @@ function MovieItem({ movie, nominate }) {
   return (
     <MoviesDataWrapper>
       <Card className={classes.root}>
-        <CardMedia className={classes.cover} image={Poster} title={Title} />
+        <CardMedia
+          className={classes.cover}
+          image={checkingPoster()}
+          title={Title}
+        />
         <div className={classes.details}>
           <CardContent className={classes.content}>
             <TypographyStyle component="h4" variant="h4" className="type">
