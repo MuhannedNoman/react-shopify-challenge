@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import moviesContext, { ACTIONS } from "../../store/moviesContext";
-
+import classes from "./Modal.module.css";
 function Modal() {
   const { moviesState, dispatchMovies } = useContext(moviesContext);
   const { nominates } = moviesState;
@@ -21,8 +21,11 @@ function Modal() {
   }
   return (
     <div>
-      <h1>{randomMovie.Title} Won!</h1>
-      <button onClick={reset}>Restart</button>
+      <div className={classes.backdrop} />
+      <div className={classes.modal}>
+        <h1>The winner is {randomMovie.Title}</h1>
+        <button onClick={reset}>Get Started</button>
+      </div>
     </div>
   );
 }
