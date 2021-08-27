@@ -1,13 +1,12 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
-import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Container from '@material-ui/core/Container';
 import NominationContainer from './containers/NominationContainer';
-// import useFetch from './hooks/useFetch';
 
 function App() {
   return (
-    <Container >
+    <Container>
       <Grid container>
         <Grid item md={5} sm={6} xs={12}>
           <NominationContainer />
