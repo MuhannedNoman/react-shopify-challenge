@@ -9,6 +9,7 @@ import NominateProvider from "./components/Store/nominateStore";
 function App() {
   return (
     <AppStyles>
+      <h1>Movies and Beyond ... 😎</h1>
       <NominateProvider>
         <Row>
           <Col lg="6" md="12">
