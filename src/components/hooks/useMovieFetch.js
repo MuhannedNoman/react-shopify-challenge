@@ -12,7 +12,6 @@ function useMovieFetch(url) {
         await axios.get(url).then((response) => {
           setData(response.data);
           setIsLoaded(true);
-          console.log(response);
         });
       };
       fetchData();
