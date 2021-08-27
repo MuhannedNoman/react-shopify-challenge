@@ -1,35 +1,30 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container,Tooltip,OverlayTrigger,Button } from "react-bootstrap";
 import Fade from "react-reveal/Fade";
-import { BsPlayFill } from "react-icons/bs";
-import { IoIosAdd, IoIosStar } from "react-icons/io";
+import Slide from 'react-reveal/Slide';
+import { BsPlayFill ,BsFillXCircleFill} from "react-icons/bs";
+import { IoIosAdd } from "react-icons/io";
+
 import { useState } from "react";
 
 export default function Home(data) {
   const [ID, setId] = useState(0);
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      remove from favorate list
+    </Tooltip>
+  );
 
   return (
-    <div
-      className="main"
-      style={{
-        background: `linear-gradient(to right, rgba(30, 30, 31, 0.9), rgba(32, 34, 36, 0.4)),url(${data.data[ID].Poster}) right top no-repeat`,
-        backgroundSize: "100% 100%"
-      }}
-    >
-      <Fade top>
+    <div className="main">
+     
+        <Row>
+      <Col>
+      <Fade top key={ID}>
         <div className="movie-info">
           <h1>{data.data[ID].Title}</h1>
-          <p>Season 1 </p>
-          <div>
-            <p className="stars">
-              <IoIosStar className="active" />
-              <IoIosStar className="active" />
-              <IoIosStar className="active" />
-              <IoIosStar className="active" />
-              <IoIosStar />
-            </p>
-          </div>
-          <p>cinema | crime | action</p>
+          <p>Year: {data.data[ID].Year}</p>
+          <p>{data.data[ID].Type}</p>
 
           <div>
             <div className="add">
@@ -43,9 +38,31 @@ export default function Home(data) {
             </div>
           </div>
         </div>
-      </Fade>
+      </Fade></Col>
+      <Col>
+          <div className="favorates">
+            <Fade left>
+         <div className="d-flex favorate">
+          <div className="favorate-img"><OverlayTrigger
+           placement="left"
+           delay={{ show: 250, hide: 400 }}
+           overlay={renderTooltip}
+         >
+    <button variant="success" className="cancle-button"><BsFillXCircleFill className="cancle"/></button>
+       </OverlayTrigger>
+         <img src={data.data[ID].Poster}></img></div>
+          <div className="favorate-text"><h1>{data.data[ID].Title}</h1></div>
+        </div>
+        </Fade>
+        
+        
+        </div>
+        
+        
+      </Col>
+      </Row>
+      <Fade left key={data.data}>
 
-      <Fade left>
         <div className="movies">
           <Container>
             <Row>

@@ -4,7 +4,7 @@ import Home from "../Home/Home";
 export default function Fetch() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const [q, setQuery] = useState("The Witcher");
+  const [q, setQuery] = useState("spiderman");
 
   useEffect(() => {
     setData(null);
