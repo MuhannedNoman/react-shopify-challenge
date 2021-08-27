@@ -8,13 +8,17 @@ import useMovieFetch from "../hooks/useMovieFetch";
 
 const MovieList = () => {
   const [search, setSearch] = useState("");
+  const [option, setOption] = useState("all");
 
   function handleSearch(e) {
     setSearch(e.target.value);
   }
+  function forSearchingInApi() {
+    return option === "all" ? "" : `&type=${option}`;
+  }
 
   const { data, isLoaded } = useMovieFetch(
-    `https://www.omdbapi.com/?s=${search}&i=tt3896198&apikey=c6b71c9e&`
+    `https://www.omdbapi.com/?s=${search}${forSearchingInApi()}&i=tt3896198&apikey=c6b71c9e&`
   );
 
   if (!isLoaded) return <Typography>Loading</Typography>;
@@ -25,6 +29,8 @@ const MovieList = () => {
         handleSearch={handleSearch}
         search={search}
         setSearch={setSearch}
+        option={option}
+        setOption={setOption}
       />
 
       {data.Error ? (
