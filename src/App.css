@@ -1,12 +1,3 @@
-<<<<<<< Updated upstream
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-=======
 @font-face {
   font-family: 'MyFont';
   src: local('MyFont'), url(font.ttf) format('woff');
@@ -60,25 +51,18 @@
   color: white;
   transition: width 1s, height 1s ,margin 1s;
  
->>>>>>> Stashed changes
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.movie-info h1{
+  font-family: 'MyFont';
+  font-size: 70px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.movies{
+  height: 400px;
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  top: 70%;
   align-items: center;
-<<<<<<< Updated upstream
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-=======
   backdrop-filter: blur(10px);
  
 }
@@ -95,24 +79,16 @@
 }
 .card-movies p{
   margin-top: 10px;
->>>>>>> Stashed changes
   color: white;
 }
+.card-movies img:hover{
+  transition: width 1s, height 1s ,margin 1s;
+  height: 290px;
+  margin-top: -30px;
+  width: 180px;
 
-.App-link {
-  color: #61dafb;
 }
 
-<<<<<<< Updated upstream
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-=======
 .add button {
   height: 50px;
   width: 50px;
@@ -167,4 +143,3 @@
   background-color: transparent;
   border: none;
 }
->>>>>>> Stashed changes
