@@ -1,6 +1,8 @@
-import React, { useContext } from "react";
+import React, { Fragment, useContext } from "react";
 import moviesContext, { ACTIONS } from "../../store/moviesContext";
 import classes from "./Modal.module.css";
+import ReactDOM from "react-dom";
+
 function Modal() {
   const { moviesState, dispatchMovies } = useContext(moviesContext);
   const { nominates } = moviesState;
@@ -19,14 +21,21 @@ function Modal() {
       payload: [],
     });
   }
+  const portalElement = document.getElementById("overlay");
   return (
-    <div>
-      <div className={classes.backdrop} />
-      <div className={classes.modal}>
-        <h1>The winner is {randomMovie.Title}</h1>
-        <button onClick={reset}>Get Started</button>
-      </div>
-    </div>
+    <Fragment>
+      {ReactDOM.createPortal(
+        <div className={classes.backdrop} />,
+        portalElement
+      )}
+      {ReactDOM.createPortal(
+        <div className={classes.modal}>
+          <h1>The winner is {randomMovie.Title}</h1>
+          <button onClick={reset}>Get Started</button>
+        </div>,
+        portalElement
+      )}
+    </Fragment>
   );
 }
 
