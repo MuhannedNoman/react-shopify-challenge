@@ -27,7 +27,7 @@ function MoviesList() {
   const hasSearched = searchValue !== "";
   if (isLoading && hasSearched) return <h1>Loading...</h1>;
   if (error && hasSearched) return <h1> {error}</h1>;
-  if (!data.Search && hasSearched) return <h1>No Results</h1>;
+  if (!data && hasSearched) return <h1>No Results</h1>;
   return (
     <div>
       {movies.slice(0, 3).map((movie) => {
