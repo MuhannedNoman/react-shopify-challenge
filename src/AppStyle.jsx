@@ -4,6 +4,7 @@ import styled from 'styled-components';
   padding-top: 100px;
   text-align: center;
   font-family: comic Neue;
+  overflow-x: hidden;
   h1 {
     color: #ffba08;
     /* color: #40916c; */
