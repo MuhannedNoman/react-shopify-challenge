@@ -10,11 +10,13 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "font-awesome": "^4.7.0",
-    "husky": "^7.0.1",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "save-dev": "^0.0.1-security",
     "styled-components": "^5.3.0",
     "web-vitals": "^1.0.1"
   },
@@ -22,13 +24,17 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js "
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run test"
+        "pre-commit": "lint-staged"
     }
-  },
+},
+"lint-staged": {
+    "src/**/*.{js,jsx}": ["eslint", "pretty-quick — staged", "git add"]
+},
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -46,5 +52,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-react": "^7.24.0",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1"
   }
 }
