@@ -39,7 +39,7 @@ const MovieList = () => {
       />
 
       {data.Error ? (
-        data.Error
+        `${data.Error}, please complete the word`
       ) : (
         <>
           {data.Search?.map((movie) => (
