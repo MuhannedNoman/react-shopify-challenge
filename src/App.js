@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Col, Row } from 'react-bootstrap';
+import MovieList from './components/MovieList';
+
+// Styles
+import AppStyles from './AppStyle';
+import Nominates from './components/MovieList/Nominates';
+import NominateProvider from './components/Store/nominateStore';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppStyles>
+      <h1>Movies and Beyond ... 😎</h1>
+      <NominateProvider>
+        <Row>
+          <Col lg="6" md="12">
+            <MovieList />
+          </Col>
+          <Col lg="6" md="12">
+            <Nominates />
+          </Col>
+        </Row>
+      </NominateProvider>
+    </AppStyles>
   );
 }
 
