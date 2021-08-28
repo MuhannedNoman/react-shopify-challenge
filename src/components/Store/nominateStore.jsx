@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-
+import PropTypes, { func } from 'prop-types';
 // Actions
 export const ACTIONS = {
   ADD_NOMINATE: 'addNewNominate',
@@ -29,5 +29,8 @@ function NominateProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return <nominateStore.Provider value={{ state, dispatch }}>{children}</nominateStore.Provider>;
+}
+NominateProvider.propTypes = {
+  children: PropTypes.objectOf(func).isRequired
 }
 export default NominateProvider;
