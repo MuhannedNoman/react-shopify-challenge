@@ -9,12 +9,12 @@ import SearchWrapperStyles from './Style';
 
 
 function Search({ handleSearch, option, setOption }) {
-  function handleoption(e) {
+  function handleOption(e) {
     setOption(e.target.value);
   }
   return (
     <>
-      <h3>Search below to nominate your top favorite movies & series.</h3>
+      <h3>Search below to nominate your top 5 favorite movies & series.</h3>
       <SearchWrapperStyles
         type="text"
         placeholder="&#xF002; Movie name"
@@ -26,7 +26,7 @@ function Search({ handleSearch, option, setOption }) {
         id="demo-customized-select"
         style={{ marginLeft: "14", fontSize: 12 }}
         value={option}
-        onChange={handleoption}
+        onChange={handleOption}
       >
         <MenuItem value="all">All</MenuItem>
         <MenuItem value="movie">Movie</MenuItem>
