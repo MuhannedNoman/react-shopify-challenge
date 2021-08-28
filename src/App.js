@@ -1,10 +1,11 @@
-import MovieList from "./components/MovieList";
-import { Col, Row } from "react-bootstrap";
+import React from 'react';
+import { Col, Row } from 'react-bootstrap';
+import MovieList from './components/MovieList';
 
 // Styles
-import { AppStyles } from "./AppStyle";
-import Nominates from "./components/MovieList/Nominates";
-import NominateProvider from "./components/Store/nominateStore";
+import AppStyles from './AppStyle';
+import Nominates from './components/MovieList/Nominates';
+import NominateProvider from './components/Store/nominateStore';
 
 function App() {
   return (

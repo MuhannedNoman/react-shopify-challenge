@@ -1,31 +1,30 @@
-import React, { useContext } from "react";
-import { nominateStore, ACTIONS } from "../Store/nominateStore";
+import React, { useContext } from 'react';
 
 // @material ui
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import {
-  MoviesDataWrapper,
-  TypographyStyle,
-  NominateButtonStyle,
-} from "./Style";
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import { MoviesDataWrapper, TypographyStyle, NominateButtonStyle } from './Style';
 
-const useStyles = makeStyles((theme) => ({
+// Store
+import { nominateStore, ACTIONS } from '../Store/nominateStore';
+
+
+const useStyles = makeStyles(() => ({
   root: {
-    display: "flex",
-    width: "600px",
+    display: 'flex',
+    width: '600px',
   },
   details: {
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
     width: 400,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   content: {
-    flex: "1 0 auto",
-    marginBottom: "20px",
+    flex: '1 0 auto',
+    marginBottom: '20px',
   },
   cover: {
     width: 200,
@@ -36,14 +35,20 @@ function MovieItem({ movie, nominate }) {
 
   const { Year, Type, Title, Poster } = movie;
 
+
+ // Add Movie to the nominated list
+ function handleClick() {
+  dispatch({
+    type: ACTIONS.ADD_NOMINATE,
+    data: movie,
+  });
+}
+
+
   function checkNominate() {
-    let index = state.findIndex((el) => el.imdbID === movie.imdbID);
+    const index = state.findIndex((el) => el.imdbID === movie.imdbID);
     return index === -1 ? (
-      <NominateButtonStyle
-        size="large"
-        className="button-style"
-        onClick={() => handleClick()}
-      >
+      <NominateButtonStyle size="large" className="button-style" onClick={() => handleClick()}>
         Nominate
       </NominateButtonStyle>
     ) : (
@@ -53,14 +58,7 @@ function MovieItem({ movie, nominate }) {
     );
   }
 
-  // Add Movie to the nominated list
-  function handleClick() {
-    dispatch({
-      type: ACTIONS.ADD_NOMINATE,
-      data: movie,
-    });
-  }
-
+ 
   // Remove Movie from nominated list
   function handleDelete(id) {
     dispatch({ type: ACTIONS.REMOVE_NOMINATE, payload: id });

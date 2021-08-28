@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 
 // Styles
-import { SearchWrapperStyles } from "./Style";
+import  SearchWrapperStyles from './Style';
 
 function Search({ handleSearch }) {
-  //setup before functions
 
   return (
     <>

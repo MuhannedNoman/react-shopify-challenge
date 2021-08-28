@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const AppStyles = styled.div`
+ const AppStyles = styled.div`
   padding-top: 100px;
   text-align: center;
   font-family: comic Neue;
@@ -10,3 +10,5 @@ export const AppStyles = styled.div`
     font-weight: bold;
   }
 `;
+
+export default AppStyles

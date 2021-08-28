@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 // take in the url
 function useMovieFetch(url) {
@@ -12,15 +12,11 @@ function useMovieFetch(url) {
         await axios.get(url).then((response) => {
           setData(response.data);
           setIsLoaded(true);
-          console.log(response);
         });
       };
       fetchData();
     } catch (error) {
-      console.log(
-        "🚀 ~ file: useMovieFetch.js ~ line 20 ~ useEffect ~ error",
-        error
-      );
+      console.log('🚀 ~ file: useMovieFetch.js ~ line 20 ~ useEffect ~ error', error);
     }
   }, [url]);
 
