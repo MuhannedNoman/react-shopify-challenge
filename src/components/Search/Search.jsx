@@ -2,9 +2,10 @@
 import React from "react";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import PropTypes from 'prop-types';
 
 // Styles
-import  SearchWrapperStyles from './Style';
+import SearchWrapperStyles from './Style';
 
 
 function Search({ handleSearch, option, setOption }) {
@@ -33,8 +34,13 @@ function Search({ handleSearch, option, setOption }) {
         <MenuItem value="game">Game</MenuItem>
       </Select>
       <br />
-    </>
-  );
-}
 
+    </>
+  )
+}
+Search.propTypes = {
+  handleSearch: PropTypes.func.isRequired,
+  option: PropTypes.string.isRequired,
+  setOption: PropTypes.func.isRequired
+}
 export default Search;

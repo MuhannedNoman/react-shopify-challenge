@@ -5,10 +5,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import PropTypes from 'prop-types';
+
 import { MoviesDataWrapper, TypographyStyle, NominateButtonStyle } from './Style';
 
 // Store
 import { nominateStore, ACTIONS } from '../Store/nominateStore';
+
 
 
 const useStyles = makeStyles(() => ({
@@ -30,27 +33,28 @@ const useStyles = makeStyles(() => ({
     width: 200,
   },
 }));
+
 function MovieItem({ movie, nominate }) {
   const { state, dispatch } = useContext(nominateStore);
 
-  const { Year, Type, Title, Poster } = movie;
+  const { Year, Type, Title, Poster, imdbID } = movie;
 
 
- // Add Movie to the nominated list
- function handleClick() {
-  dispatch({
-    type: ACTIONS.ADD_NOMINATE,
-    data: movie,
-  });
-}
-function checkingPoster() {
-  return Poster === "N/A"
-    ? "https://ih1.redbubble.net/image.425370313.8057/fposter,small,wall_texture,product,750x1000.u1.jpg"
-    : Poster;
-}
+  // Add Movie to the nominated list
+  function handleClick() {
+    dispatch({
+      type: ACTIONS.ADD_NOMINATE,
+      data: movie,
+    });
+  }
+  function checkingPoster() {
+    return Poster === "N/A"
+      ? "https://ih1.redbubble.net/image.425370313.8057/fposter,small,wall_texture,product,750x1000.u1.jpg"
+      : Poster;
+  }
 
   function checkNominate() {
-    const index = state.findIndex((el) => el.imdbID === movie.imdbID);
+    const index = state.findIndex((el) => el.imdbID === imdbID);
     return index === -1 ? (
       <NominateButtonStyle size="large" className="button-style" onClick={() => handleClick()}>
 
@@ -63,7 +67,7 @@ function checkingPoster() {
     );
   }
 
- 
+
   // Remove Movie from nominated list
   function handleDelete(id) {
     dispatch({ type: ACTIONS.REMOVE_NOMINATE, payload: id });
@@ -97,7 +101,7 @@ function checkingPoster() {
             <NominateButtonStyle
               size="large"
               className="button-style"
-              onClick={() => handleDelete(movie.imdbID)}
+              onClick={() => handleDelete(imdbID)}
             >
               Remove
             </NominateButtonStyle>
@@ -109,5 +113,14 @@ function checkingPoster() {
     </MoviesDataWrapper>
   );
 }
-
+MovieItem.defaultProps = {
+  nominate: false
+}
+MovieItem.propTypes = {
+  movie: PropTypes.shape({
+    Year: PropTypes.string, Type: PropTypes.string, Title: PropTypes.string, Poster: PropTypes.string,
+    imdbID: PropTypes.string
+  }).isRequired,
+  nominate: PropTypes.bool
+}
 export default MovieItem;
