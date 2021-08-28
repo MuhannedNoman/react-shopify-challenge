@@ -16,7 +16,7 @@ function useMovieFetch(url) {
       };
       fetchData();
     } catch (error) {
-      console.log('🚀 ~ file: useMovieFetch.js ~ line 20 ~ useEffect ~ error', error);
+      // console.log('🚀 ~ file: useMovieFetch.js ~ line 20 ~ useEffect ~ error', error);
 
     }
   }, [url]);

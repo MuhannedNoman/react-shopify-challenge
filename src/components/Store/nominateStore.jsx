@@ -19,7 +19,7 @@ function reducer(state, action) {
       return index === -1 ? [...state, action.data] : state;
     }
     case ACTIONS.REMOVE_NOMINATE:
-      return state.filter((moive) => moive.imdbID !== action.payload);
+      return state.filter((movie) => movie.imdbID !== action.payload);
     default:
       return state;
   }
